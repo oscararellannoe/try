@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="es" className={poppins.variable}>
-      <body className="font-sans bg-deepGreen text-white antialiased">
+      <body className="font-sans bg-white text-night antialiased">
         {children}
       </body>
     </html>

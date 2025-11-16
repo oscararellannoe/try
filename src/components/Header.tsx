@@ -29,20 +29,20 @@ export default function Header() {
       className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
     >
       <div
-        className={`flex w-full max-w-6xl items-center justify-between rounded-full border border-white/10 px-4 py-2 backdrop-blur-2xl transition-all ${
-          isScrolled ? 'bg-night/70 shadow-neon' : 'bg-white/10'
+        className={`flex w-full max-w-6xl items-center justify-between rounded-full border border-night/5 px-4 py-2 backdrop-blur-2xl transition-all ${
+          isScrolled ? 'bg-white shadow-[0_20px_60px_rgba(5,6,10,0.12)]' : 'bg-white/80'
         }`}
       >
         <div className="flex items-center gap-3">
           <Logo size={isScrolled ? 'sm' : 'md'} />
-          <div className="flex flex-col text-[11px] uppercase tracking-[0.25em] text-white/70">
+          <div className="flex flex-col text-[11px] uppercase tracking-[0.25em] text-night/60">
             <span>Est. 2012 · Colombia</span>
             <span>@patycohen</span>
           </div>
         </div>
-        <nav className="hidden items-center gap-6 text-sm text-white/80 lg:flex">
+        <nav className="hidden items-center gap-6 text-sm text-night/70 lg:flex">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="transition hover:text-white">
+            <a key={item.href} href={item.href} className="transition hover:text-night">
               {item.label}
             </a>
           ))}

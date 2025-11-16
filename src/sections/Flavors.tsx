@@ -56,17 +56,17 @@ export default function Flavors() {
     <section id="sabores" className="relative px-4 py-24 sm:px-10">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 text-center">
-          <p className="text-sm uppercase tracking-[0.5em] text-white/60">Nuestros sabores</p>
-          <h2 className="mt-4 text-4xl font-black text-white sm:text-5xl">
+          <p className="text-sm uppercase tracking-[0.5em] text-night/50">Nuestros sabores</p>
+          <h2 className="mt-4 text-4xl font-black text-night sm:text-5xl">
             Cada país tiene su versión favorita de mango preparado. ¿Cuál es la tuya?
           </h2>
-          <p className="mt-3 text-lg text-white/80">Zoom suave, emojis y colores explosivos para que elijas tu combo ideal. 💚🥭</p>
+          <p className="mt-3 text-lg text-night/70">Zoom suave, emojis y colores explosivos para que elijas tu combo ideal. 💚🥭</p>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {flavors.map((flavor) => (
             <div
               key={flavor.name}
-              className="group rounded-[28px] border border-white/10 bg-white/5 p-4 text-white backdrop-blur-xl transition hover:-translate-y-2 hover:border-white/40"
+              className="group rounded-[28px] border border-night/10 bg-white p-4 text-night shadow-[0_20px_60px_rgba(5,6,10,0.06)] transition hover:-translate-y-2 hover:border-mangoOrange/40"
             >
               <div className="overflow-hidden rounded-2xl">
                 <Image
@@ -80,7 +80,7 @@ export default function Flavors() {
               <h3 className="mt-4 text-2xl font-black" style={{ color: flavor.color }}>
                 {flavor.name}
               </h3>
-              <p className="mt-2 text-white/80">{flavor.description}</p>
+              <p className="mt-2 text-night/70">{flavor.description}</p>
             </div>
           ))}
         </div>
