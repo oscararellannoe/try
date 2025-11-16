@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="px-4 pb-12 pt-16 text-sm text-night/60 sm:px-10">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 rounded-[30px] border border-night/10 bg-white p-8 text-center shadow-[0_20px_60px_rgba(5,6,10,0.06)] sm:text-left lg:flex-row lg:items-center lg:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 rounded-[36px] border border-white/60 bg-white/80 p-8 text-center shadow-card backdrop-blur-xl sm:text-left lg:flex-row lg:items-center lg:justify-between">
         <div>
           <p className="text-lg font-black text-night">MEGA MANGOS</p>
           <p className="text-xs uppercase tracking-[0.4em] text-night/50">Est. 2012 · Colombia</p>

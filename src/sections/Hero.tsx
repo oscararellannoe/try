@@ -87,6 +87,12 @@ const social = [
   }
 ];
 
+const stats = [
+  { label: 'Sabores Signature', value: '8+' },
+  { label: 'Ciudades', value: '5' },
+  { label: 'Min. delivery', value: '~30' }
+];
+
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -103,101 +109,124 @@ export default function Hero() {
   const activeSlide = slides[currentSlide];
 
   return (
-    <section id="hero" ref={heroRef} className="relative flex min-h-screen flex-col justify-center overflow-hidden px-4 pt-36 sm:px-10 lg:flex-row lg:items-center">
+    <section
+      id="hero"
+      ref={heroRef}
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-4 pt-32 sm:px-10"
+    >
+      <motion.div style={{ y: parallax }} className="absolute inset-0 -z-20 bg-hero-gradient opacity-30" />
       <motion.div
         style={{ y: parallax }}
-        className="absolute inset-0 -z-10 bg-hero-gradient opacity-70"
+        className="pointer-events-none absolute -left-24 top-16 -z-10 h-64 w-64 rounded-full bg-mangoYellow/40 blur-3xl"
+        aria-hidden
       />
       <motion.div
         style={{ y: parallax }}
-        className="pointer-events-none absolute -left-10 top-10 -z-10 h-80 w-80 rounded-full bg-mangoYellow/30 blur-3xl"
+        className="pointer-events-none absolute -right-10 bottom-10 -z-10 h-[32rem] w-[32rem] rounded-full bg-mangoGreen/40 blur-3xl"
+        aria-hidden
       />
-      <motion.div
-        style={{ y: parallax }}
-        className="pointer-events-none absolute -right-16 bottom-0 -z-10 h-[28rem] w-[28rem] rounded-full bg-mangoGreen/30 blur-3xl"
-      />
-      <div className="flex-1 space-y-6 text-center lg:text-left">
-        <Logo size="lg" showTagline className="mx-auto lg:mx-0" />
-        <p className="text-sm uppercase tracking-[0.6em] text-night/60">Houston · Fort Worth · Dallas · New York · California</p>
-        <h1 className="text-4xl font-black leading-tight text-night sm:text-5xl lg:text-6xl">
-          ¡Delicioso mango colombiano! <span className="text-mangoYellow">¿Ya lo probaste?</span>
-        </h1>
-        <p className="text-lg text-night/70 sm:text-xl">
-          El sabor que te hace viajar a casa. Street food vibes, sazón latina y delivery via Uber Eats. 🥭🌶️
-        </p>
-        <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
-          <Link
-            href="https://www.ubereats.com/"
-            target="_blank"
-            className="btn-glow w-full rounded-full bg-gradient-to-r from-mangoRed via-mangoOrange to-mangoYellow px-8 py-3 text-center text-sm font-extrabold uppercase tracking-[0.3em] text-night shadow-neon transition hover:scale-[1.03] sm:w-auto"
-          >
-            Ordena Ahora
-          </Link>
-          <a
-            href="#sabores"
-            className="w-full rounded-full border border-night/10 px-8 py-3 text-center text-sm font-semibold uppercase tracking-[0.2em] text-night transition hover:border-mangoOrange hover:text-mangoOrange sm:w-auto"
-          >
-            Explora Sabores
-          </a>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-3 text-xs uppercase text-night/60 lg:justify-start">
-          <span className="rounded-full bg-night/5 px-3 py-1">Delivery con Uber Eats</span>
-          <span className="rounded-full bg-night/5 px-3 py-1">Est. 2012 Colombia</span>
-          <span className="rounded-full bg-night/5 px-3 py-1">CEO @patycohen</span>
-        </div>
-        <div className="flex items-center justify-center gap-3 lg:justify-start">
-          {social.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row lg:items-stretch">
+        <div className="flex-1 space-y-7 rounded-[38px] border border-white/50 bg-white/70 p-8 text-center shadow-card backdrop-blur-xl lg:text-left">
+          <Logo size="lg" showTagline className="mx-auto lg:mx-0" />
+          <p className="text-sm uppercase tracking-[0.6em] text-night/60">
+            Houston · Fort Worth · Dallas · New York · California
+          </p>
+          <h1 className="text-4xl font-black leading-tight text-night sm:text-5xl lg:text-6xl">
+            ¡Delicioso mango colombiano!{' '}
+            <span className="bg-gradient-to-r from-mangoRed via-mangoOrange to-mangoYellow bg-clip-text text-transparent">
+              ¿Ya lo probaste?
+            </span>
+          </h1>
+          <p className="text-lg text-night/70 sm:text-xl">
+            El sabor que te hace viajar a casa. Street food vibes, sazón latina y delivery via Uber Eats. 🥭🌶️
+          </p>
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+            <Link
+              href="https://www.ubereats.com/"
               target="_blank"
-              rel="noreferrer"
-              aria-label={`Compartir en ${item.label}`}
-              className="rounded-full border border-night/10 p-3 text-night/70 transition hover:border-mangoOrange hover:text-mangoOrange"
+              className="btn-glow w-full rounded-full bg-gradient-to-r from-mangoRed via-mangoOrange to-mangoYellow px-8 py-3 text-center text-sm font-extrabold uppercase tracking-[0.3em] text-night shadow-neon transition hover:-translate-y-0.5 sm:w-auto"
             >
-              {item.icon}
+              Ordena Ahora
+            </Link>
+            <a
+              href="#sabores"
+              className="w-full rounded-full border border-night/10 px-8 py-3 text-center text-sm font-semibold uppercase tracking-[0.2em] text-night transition hover:border-night hover:text-night sm:w-auto"
+            >
+              Explora Sabores
             </a>
-          ))}
-        </div>
-      </div>
-      <div className="mt-12 flex-1 lg:mt-0">
-        <div className="relative rounded-[32px] border border-night/10 bg-white p-4 shadow-[0_25px_80px_rgba(5,6,10,0.08)]">
-          <motion.div
-            key={activeSlide.name}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="overflow-hidden rounded-[28px]"
-          >
-            <Image
-              src={activeSlide.image}
-              alt={activeSlide.name}
-              width={800}
-              height={600}
-              className="h-[320px] w-full rounded-[28px] object-cover"
-              priority
-            />
-          </motion.div>
-          <div className="mt-4 rounded-2xl bg-white p-5 text-center shadow-[0_20px_60px_rgba(5,6,10,0.08)]">
-            <p className="text-sm uppercase tracking-[0.4em] text-night/50">En rotación</p>
-            <p className="mt-2 text-2xl font-black" style={{ color: activeSlide.color }}>
-              {activeSlide.name}
-            </p>
-            <p className="mt-2 text-night/70">{activeSlide.description}</p>
           </div>
-          <div className="mt-6 grid grid-cols-4 gap-3">
-            {slides.map((slide, index) => (
-              <button
-                key={slide.name}
-                onClick={() => setCurrentSlide(index)}
-                className={`overflow-hidden rounded-2xl border-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mangoYellow ${
-                  currentSlide === index ? 'border-mangoYellow' : 'border-transparent'
-                }`}
-                aria-label={`Mostrar ${slide.name}`}
-              >
-                <Image src={slide.image} alt={slide.name} width={200} height={200} className="h-16 w-full object-cover" />
-              </button>
+          <div className="flex flex-wrap items-center justify-center gap-3 text-xs uppercase text-night/60 lg:justify-start">
+            <span className="rounded-full bg-night/5 px-3 py-1">Delivery con Uber Eats</span>
+            <span className="rounded-full bg-night/5 px-3 py-1">Est. 2012 Colombia</span>
+            <span className="rounded-full bg-night/5 px-3 py-1">CEO @patycohen</span>
+          </div>
+          <div className="grid grid-cols-3 gap-4">
+            {stats.map((stat) => (
+              <div key={stat.label} className="rounded-2xl border border-white/60 bg-white/80 p-4 shadow-card">
+                <p className="text-3xl font-black text-night">{stat.value}</p>
+                <p className="text-[11px] uppercase tracking-[0.3em] text-night/50">{stat.label}</p>
+              </div>
             ))}
+          </div>
+          <div className="flex items-center justify-center gap-3 lg:justify-start">
+            {social.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Compartir en ${item.label}`}
+                className="rounded-full border border-night/10 p-3 text-night/70 transition hover:-translate-y-0.5 hover:border-mangoOrange hover:text-mangoOrange"
+              >
+                {item.icon}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className="flex-1">
+          <div className="relative rounded-[40px] border border-white/60 bg-white/80 p-5 shadow-card backdrop-blur-xl">
+            <motion.div
+              key={activeSlide.name}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="overflow-hidden rounded-[32px]"
+            >
+              <Image
+                src={activeSlide.image}
+                alt={activeSlide.name}
+                width={800}
+                height={600}
+                className="h-[360px] w-full rounded-[32px] object-cover"
+                priority
+              />
+            </motion.div>
+            <div className="mt-5 rounded-3xl border border-night/10 bg-white/90 p-6 text-center shadow-card">
+              <p className="text-sm uppercase tracking-[0.4em] text-night/50">En rotación</p>
+              <p className="mt-2 text-2xl font-black" style={{ color: activeSlide.color }}>
+                {activeSlide.name}
+              </p>
+              <p className="mt-2 text-night/70">{activeSlide.description}</p>
+            </div>
+            <div className="mt-6 grid grid-cols-4 gap-3">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.name}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`overflow-hidden rounded-2xl border-2 transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mangoYellow ${
+                    currentSlide === index ? 'border-mangoYellow shadow-glow' : 'border-transparent'
+                  }`}
+                  aria-label={`Mostrar ${slide.name}`}
+                >
+                  <Image src={slide.image} alt={slide.name} width={200} height={200} className="h-16 w-full object-cover" />
+                </button>
+              ))}
+            </div>
+            <div className="absolute -right-6 top-10 hidden max-w-[220px] rounded-3xl border border-white/50 bg-white/80 p-4 text-left text-sm shadow-card backdrop-blur-xl lg:block">
+              <p className="text-xs uppercase tracking-[0.4em] text-night/50">Novedad</p>
+              <p className="mt-2 text-night font-black">Eventos, pop-ups y catering tropical.</p>
+              <p className="mt-1 text-night/60">Reservas limitadas cada semana.</p>
+            </div>
           </div>
         </div>
       </div>
