@@ -6,8 +6,13 @@
   color-scheme: dark;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #05060a;
+  background-color: #031f14;
+  min-height: 100vh;
 }
 
 a {
@@ -16,6 +21,58 @@ a {
 }
 
 ::selection {
-  background: rgba(61, 224, 255, 0.3);
-  color: #fff;
+  background: rgba(255, 215, 0, 0.5);
+  color: #031f14;
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .text-neon {
+    text-shadow: 0 0 20px rgba(0, 255, 132, 0.4);
+  }
+  .btn-glow {
+    box-shadow: 0 15px 45px rgba(255, 107, 53, 0.45);
+  }
+  .pulse-ring::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 2px solid rgba(0, 255, 132, 0.5);
+    animation: pulse-ring 2s infinite;
+  }
+  .carousel-track {
+    animation: marquee 28s linear infinite;
+  }
 }

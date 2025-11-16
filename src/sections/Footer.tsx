@@ -1,19 +1,24 @@
 export default function Footer() {
   return (
-    <footer className="px-6 pb-12 pt-20 text-center text-sm text-white/50">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 md:flex-row md:justify-between">
-        <p>© {new Date().getFullYear()} PulseFlow. Diseñado para creadores audaces.</p>
-        <div className="flex gap-4 text-white/60">
-          <a href="#" className="transition hover:text-white">
-            Política
+    <footer className="px-4 pb-12 pt-16 text-sm text-white/70 sm:px-10">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 rounded-[30px] border border-white/10 bg-night/60 p-8 text-center sm:text-left lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <p className="text-lg font-black text-white">MEGA MANGOS</p>
+          <p className="text-xs uppercase tracking-[0.4em] text-white/50">Est. 2012 · Colombia</p>
+          <p className="mt-3 text-white/70">🍋 7500 Bellaire Blvd, Houston, TX 77036</p>
+        </div>
+        <div className="flex flex-col gap-3 text-white/80 sm:flex-row sm:items-center">
+          <a href="https://www.instagram.com/megamangosoriginal" target="_blank" className="transition hover:text-mangoYellow">
+            Instagram
           </a>
-          <a href="#" className="transition hover:text-white">
-            Términos
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://megamangos.com" target="_blank" className="transition hover:text-mangoYellow">
+            Facebook
           </a>
-          <a href="#" className="transition hover:text-white">
-            Soporte
+          <a href="https://wa.me/?text=Vamos%20a%20MEGA%20MANGOS!" target="_blank" className="transition hover:text-mangoYellow">
+            WhatsApp
           </a>
         </div>
+        <p className="text-xs text-white/50">Copyright © {new Date().getFullYear()} · Est. 2012 Colombia · All rights reserved.</p>
       </div>
     </footer>
   );
