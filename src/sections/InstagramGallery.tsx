@@ -11,7 +11,7 @@ const posts = [
 
 export default function InstagramGallery() {
   return (
-    <section id="instagram" className="relative px-4 py-24 sm:px-10">
+    <section id="instagram" className="relative px-4 py-28 sm:px-10">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 flex flex-col gap-4 text-center">
           <p className="text-sm uppercase tracking-[0.5em] text-night/50">Instagram</p>
@@ -25,16 +25,24 @@ export default function InstagramGallery() {
             Seguir en Instagram
           </a>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {posts.map((post, index) => (
             <a
               key={post}
               href="https://www.instagram.com/megamangosoriginal"
               target="_blank"
-              className="group relative block overflow-hidden rounded-[30px] border border-night/10 shadow-[0_15px_45px_rgba(5,6,10,0.05)]"
+              className="group relative block overflow-hidden rounded-[36px] border border-white/70 bg-white/70 p-2 shadow-card"
             >
-              <Image src={post} alt={`Post de Mega Mangos ${index + 1}`} width={500} height={500} className="h-72 w-full object-cover transition duration-500 group-hover:scale-110" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/90 opacity-0 transition group-hover:opacity-100">
+              <div className="overflow-hidden rounded-[28px]">
+                <Image
+                  src={post}
+                  alt={`Post de Mega Mangos ${index + 1}`}
+                  width={500}
+                  height={500}
+                  className="h-80 w-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-white/95 via-white/70 to-white/90 opacity-0 transition group-hover:opacity-100">
                 <p className="text-3xl">🥭</p>
                 <p className="mt-2 text-sm uppercase tracking-[0.3em] text-night">Ver en Instagram</p>
               </div>

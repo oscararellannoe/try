@@ -8,40 +8,44 @@ const cities = [
 
 export default function Locations() {
   return (
-    <section id="locaciones" className="relative px-4 py-24 sm:px-10">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 lg:flex-row">
-        <div className="flex-1 space-y-6">
+    <section id="locaciones" className="relative px-4 py-28 sm:px-10">
+      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
+        <div className="space-y-6 rounded-[40px] border border-white/60 bg-white/80 p-8 shadow-card backdrop-blur-xl">
           <p className="text-sm uppercase tracking-[0.5em] text-night/50">Locaciones</p>
           <h2 className="text-4xl font-black text-night sm:text-5xl">Estamos donde tú estás.</h2>
           <p className="text-lg text-night/70">
-            Houston es casa, pero nuestros food trucks aparecen en Fort Worth, Dallas, New York y California. Síguenos en Instagram para saber dónde parqueará la Mega Mango Crew. 💨
+            Houston es casa, pero nuestros food trucks aparecen en Fort Worth, Dallas, New York y California. Síguenos en Instagram para saber dónde
+            parqueará la Mega Mango Crew. 💨
           </p>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {cities.map((city) => (
-              <div key={city.name} className="relative overflow-hidden rounded-3xl border border-night/10 bg-white p-5 shadow-[0_15px_45px_rgba(5,6,10,0.05)]">
-                <div className="absolute -left-6 top-1/2 h-20 w-20 -translate-y-1/2 rounded-full bg-mangoGreen/30 blur-2xl" />
+              <div
+                key={city.name}
+                className="group relative overflow-hidden rounded-3xl border border-white/70 bg-white/90 p-5 shadow-card transition hover:-translate-y-1.5"
+              >
+                <div className="absolute -left-6 top-1/2 h-24 w-24 -translate-y-1/2 rounded-full bg-mangoGreen/30 blur-2xl" aria-hidden />
                 <div className="relative flex items-center gap-3">
-                  <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-mangoOrange/30 text-2xl">
+                  <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-mangoOrange/20 text-2xl">
                     📍
                     <span className="pulse-ring absolute inset-0" />
                   </span>
                   <div>
                     <p className="text-xl font-black text-night">{city.name}</p>
-                    <p className="text-sm uppercase tracking-[0.3em] text-night/50">{city.state}</p>
+                    <p className="text-xs uppercase tracking-[0.35em] text-night/50">{city.state}</p>
                   </div>
                 </div>
-                <p className="mt-3 text-night/70">{city.address}</p>
+                <p className="relative mt-3 text-night/70">{city.address}</p>
               </div>
             ))}
           </div>
-          <div className="rounded-3xl border border-night/10 bg-white p-6 shadow-[0_20px_60px_rgba(5,6,10,0.06)]">
+          <div className="rounded-3xl border border-night/5 bg-gradient-to-r from-mangoPeach via-white to-white p-6 shadow-card">
             <p className="text-sm uppercase tracking-[0.4em] text-night/50">Dirección principal</p>
             <p className="mt-3 text-2xl font-black text-night">7500 Bellaire Blvd, Houston, TX 77036</p>
             <p className="mt-2 text-night/70">Abierto todos los días · Delivery via Uber Eats · Walk-ins bienvenidos.</p>
           </div>
         </div>
-        <div className="flex-1">
-          <div className="h-[480px] overflow-hidden rounded-[36px] border border-night/10 shadow-[0_30px_100px_rgba(5,6,10,0.08)]">
+        <div className="relative rounded-[40px] border border-white/60 bg-white/80 p-4 shadow-card">
+          <div className="h-[480px] overflow-hidden rounded-[32px] border border-white/70">
             <iframe
               title="Mapa Houston Mega Mangos"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.600694684308!2d-95.5214019246953!3d29.70417907506896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c3d293c05ab1%3A0x2c0d20593d3536c1!2s7500%20Bellaire%20Blvd%2C%20Houston%2C%20TX%2077036!5e0!3m2!1sen!2sus!4v1717200000000!5m2!1sen!2sus"
@@ -50,6 +54,10 @@ export default function Locations() {
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
             />
+          </div>
+          <div className="mt-6 rounded-3xl border border-white/70 bg-white/90 p-5 text-sm text-night/70">
+            <p className="text-xs uppercase tracking-[0.4em] text-night/50">Radar de pop-ups</p>
+            <p className="mt-2 text-night font-semibold">Anunciamos nuevas ubicaciones cada semana vía Instagram Stories.</p>
           </div>
         </div>
       </div>
