@@ -112,26 +112,31 @@ export default function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-4 pt-32 sm:px-10"
+      className="relative isolate flex min-h-screen w-full flex-col justify-center overflow-hidden bg-gradient-to-br from-[#fff4d9] via-[#ffd0cf] to-[#f4ffda] py-28"
     >
-      <motion.div style={{ y: parallax }} className="absolute inset-0 -z-20 bg-hero-gradient opacity-30" />
       <motion.div
         style={{ y: parallax }}
-        className="pointer-events-none absolute -left-24 top-16 -z-10 h-64 w-64 rounded-full bg-mangoYellow/40 blur-3xl"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.5),_transparent_60%)]"
         aria-hidden
       />
       <motion.div
         style={{ y: parallax }}
-        className="pointer-events-none absolute -right-10 bottom-10 -z-10 h-[32rem] w-[32rem] rounded-full bg-mangoGreen/40 blur-3xl"
+        className="pointer-events-none absolute -left-20 top-24 -z-10 h-[22rem] w-[22rem] rounded-full bg-mangoYellow/40 blur-3xl"
         aria-hidden
       />
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row lg:items-stretch">
-        <div className="flex-1 space-y-7 rounded-[38px] border border-white/50 bg-white/70 p-8 text-center shadow-card backdrop-blur-xl lg:text-left">
-          <Logo size="lg" showTagline className="mx-auto lg:mx-0" />
-          <p className="text-sm uppercase tracking-[0.6em] text-night/60">
-            Houston · Fort Worth · Dallas · New York · California
-          </p>
-          <h1 className="text-4xl font-black leading-tight text-night sm:text-5xl lg:text-6xl">
+      <motion.div
+        style={{ y: parallax }}
+        className="pointer-events-none absolute -right-24 bottom-10 -z-10 h-[34rem] w-[34rem] rounded-full bg-mangoGreen/40 blur-3xl"
+        aria-hidden
+      />
+      <div className="mx-auto flex w-full flex-col gap-12 px-4 sm:px-10 lg:px-16">
+        <div className="flex flex-col gap-6 text-center text-night lg:flex-row lg:items-stretch lg:text-left">
+          <div className="flex-1 space-y-6 rounded-[44px] border border-white/70 bg-white/80 p-8 shadow-card backdrop-blur-xl">
+            <Logo size="lg" showTagline className="mx-auto lg:mx-0" />
+            <p className="text-sm uppercase tracking-[0.6em] text-night/60">
+              Houston · Fort Worth · Dallas · New York · California
+            </p>
+            <h1 className="text-4xl font-black leading-tight text-night sm:text-5xl lg:text-6xl">
             ¡Delicioso mango colombiano!{' '}
             <span className="bg-gradient-to-r from-mangoRed via-mangoOrange to-mangoYellow bg-clip-text text-transparent">
               ¿Ya lo probaste?
@@ -183,8 +188,9 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <div className="flex-1">
-          <div className="relative rounded-[40px] border border-white/60 bg-white/80 p-5 shadow-card backdrop-blur-xl">
+        </div>
+        <div className="grid gap-8 lg:grid-cols-[1.15fr,0.85fr]">
+          <div className="relative rounded-[44px] border border-white/70 bg-white/80 p-5 shadow-card backdrop-blur-xl">
             <motion.div
               key={activeSlide.name}
               initial={{ opacity: 0, y: 30 }}
@@ -197,7 +203,7 @@ export default function Hero() {
                 alt={activeSlide.name}
                 width={800}
                 height={600}
-                className="h-[360px] w-full rounded-[32px] object-cover"
+                className="h-[400px] w-full rounded-[32px] object-cover"
                 priority
               />
             </motion.div>
@@ -227,6 +233,29 @@ export default function Hero() {
               <p className="mt-2 text-night font-black">Eventos, pop-ups y catering tropical.</p>
               <p className="mt-1 text-night/60">Reservas limitadas cada semana.</p>
             </div>
+          </div>
+          <div className="rounded-[44px] border border-white/70 bg-white/80 p-6 text-night shadow-card backdrop-blur-xl">
+            <p className="text-xs uppercase tracking-[0.4em] text-night/60">Agenda tu visita</p>
+            <p className="mt-2 text-3xl font-black">
+              ¡Nos encuentras cada semana en mercados, pop-ups y eventos privados en todo Texas!
+            </p>
+            <p className="mt-3 text-night/70">
+              Sigue nuestras redes para enterarte de los próximos spots o escríbenos para reservar tu evento corporativo, feria
+              latina o celebración familiar con el toque fresco de Mega Mangos.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-3xl border border-night/10 bg-night/5 p-4">
+                <p className="text-sm uppercase tracking-[0.3em] text-night/50">Delivery</p>
+                <p className="text-lg font-semibold text-night">Uber Eats · DoorDash · Catering</p>
+              </div>
+              <div className="rounded-3xl border border-night/10 bg-night/5 p-4">
+                <p className="text-sm uppercase tracking-[0.3em] text-night/50">Contacto</p>
+                <p className="text-lg font-semibold text-night">@megamangos · hola@megamangos.com</p>
+              </div>
+            </div>
+            <p className="mt-6 text-center text-xs uppercase tracking-[0.4em] text-night/60">
+              Scroll para conocer nuestros sabores
+            </p>
           </div>
         </div>
       </div>
