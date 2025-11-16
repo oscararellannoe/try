@@ -10,19 +10,23 @@ module.exports = {
     extend: {
       colors: {
         night: '#05060a',
-        aurora: '#3de0ff',
-        blush: '#ff8ac3',
-        mint: '#00f5a0'
+        deepGreen: '#031f14',
+        mangoGreen: '#00ff84',
+        mangoYellow: '#ffd700',
+        mangoOrange: '#ff6b35',
+        mangoRed: '#ff004d'
       },
       fontFamily: {
-        sans: ['"Space Grotesk"', 'var(--font-geist-sans)', 'sans-serif']
+        sans: ['var(--font-poppins)', 'Poppins', 'sans-serif']
       },
       boxShadow: {
-        glow: '0 20px 80px rgba(61, 224, 255, 0.35)'
+        glow: '0 15px 60px rgba(255, 107, 53, 0.35)',
+        neon: '0 25px 120px rgba(0, 255, 132, 0.35)'
       },
       backgroundImage: {
         'grid-radial':
-          'radial-gradient(circle at top, rgba(61,224,255,0.25), transparent 60%)'
+          'radial-gradient(circle at top, rgba(0,255,132,0.25), transparent 55%)',
+        'hero-gradient': 'linear-gradient(135deg, #00ff84 0%, #ffd700 50%, #ff6b35 100%)'
       }
     }
   },
