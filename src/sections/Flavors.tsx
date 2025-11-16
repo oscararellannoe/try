@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import SectionIntro from '../components/SectionIntro';
+import { ShieldCheckIcon, SparklesIcon } from '../components/LucideIcons';
 
 const flavors = [
   {
@@ -51,46 +53,55 @@ const flavors = [
   }
 ];
 
+const badges = [
+  { icon: SparklesIcon, label: 'Desarrollo creativo por país' },
+  { icon: ShieldCheckIcon, label: 'Toppings premium certificados' }
+];
+
 export default function Flavors() {
   return (
     <section id="sabores" className="relative px-4 py-28 sm:px-10">
       <div className="absolute inset-x-0 top-0 -z-10 h-2/3 bg-gradient-to-b from-white via-mangoBlush/60 to-transparent" aria-hidden />
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <p className="text-sm uppercase tracking-[0.5em] text-night/50">Nuestros sabores</p>
-          <h2 className="mt-4 text-4xl font-black text-night sm:text-5xl">
-            Cada país tiene su versión favorita de mango preparado. ¿Cuál es la tuya?
-          </h2>
-          <p className="mt-3 text-lg text-night/70">Zoom suave, emojis y colores explosivos para que elijas tu combo ideal. 💚🥭</p>
+        <SectionIntro
+          eyebrow="Colección Signature"
+          title="Cada país de Latinoamérica tiene un ritual con mango, nosotros lo producimos con precisión."
+          description="Frescura, picor, notas dulces y texturas diseñadas para delivery, food truck y servicio de barra."
+        />
+        <div className="mt-10 flex flex-wrap justify-center gap-3 text-xs uppercase tracking-[0.4em] text-night/60">
+          {badges.map((badge) => (
+            <span key={badge.label} className="inline-flex items-center gap-2 rounded-full border border-night/10 bg-white/80 px-4 py-2">
+              <badge.icon className="h-4 w-4" /> {badge.label}
+            </span>
+          ))}
         </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {flavors.map((flavor) => (
             <article
               key={flavor.name}
-              className="group relative overflow-hidden rounded-[32px] border border-white/70 bg-white/80 p-4 text-night shadow-card transition hover:-translate-y-3 hover:shadow-[0_35px_100px_rgba(5,6,10,0.12)]"
+              className="group relative overflow-hidden rounded-[36px] border border-white/70 bg-white/80 p-4 text-night shadow-card transition hover:-translate-y-3 hover:shadow-[0_35px_100px_rgba(5,6,10,0.12)]"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white/80 opacity-0 transition duration-300 group-hover:opacity-100" aria-hidden />
-              <div className="overflow-hidden rounded-2xl">
+              <div className="overflow-hidden rounded-3xl">
                 <Image
                   src={flavor.image}
                   alt={flavor.name}
                   width={400}
-                  height={300}
-                  className="h-48 w-full object-cover transition duration-500 group-hover:scale-110"
+                  height={320}
+                  className="h-52 w-full object-cover transition duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="relative mt-5 space-y-3">
-                <span className="inline-flex rounded-full bg-night/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-night/60">
-                  Signature
+              <div className="relative mt-5 space-y-4">
+                <span className="inline-flex items-center gap-2 rounded-full border border-night/10 bg-night/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.35em] text-night/60">
+                  Signature · Batch {flavor.name.split(' ')[0]}
                 </span>
                 <h3 className="text-2xl font-black" style={{ color: flavor.color }}>
                   {flavor.name}
                 </h3>
-                <p className="text-night/70">{flavor.description}</p>
+                <p className="text-sm text-night/70">{flavor.description}</p>
               </div>
-              <div className="relative mt-6 flex items-center justify-between rounded-2xl border border-night/5 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-night/60">
+              <div className="relative mt-6 flex items-center justify-between rounded-3xl border border-night/5 bg-white/70 px-4 py-3 text-xs font-semibold uppercase tracking-[0.4em] text-night/60">
                 <span>Sweet + Heat</span>
-                <span className="text-night/40">→</span>
+                <span style={{ color: flavor.color }}>Live demo</span>
               </div>
             </article>
           ))}

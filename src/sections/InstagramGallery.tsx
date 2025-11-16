@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import SectionIntro from '../components/SectionIntro';
+import { ArrowUpRightIcon, InstagramIcon } from '../components/LucideIcons';
 
 const posts = [
   'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80',
@@ -12,17 +14,25 @@ const posts = [
 export default function InstagramGallery() {
   return (
     <section id="instagram" className="relative px-4 py-28 sm:px-10">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12 flex flex-col gap-4 text-center">
-          <p className="text-sm uppercase tracking-[0.5em] text-night/50">Instagram</p>
-          <h2 className="text-4xl font-black text-night sm:text-5xl">Feed directo desde @megamangosoriginal</h2>
-          <p className="text-lg text-night/70">Haz click para ver las stories y promociones más recientes.</p>
+      <div className="mx-auto max-w-6xl space-y-12">
+        <SectionIntro
+          eyebrow="Contenido en vivo"
+          title="Feed directo desde @megamangosoriginal"
+          description="Historias, lanzamientos, behind the scenes y colaboraciones con marcas aliadas."
+        />
+        <div className="flex flex-wrap items-center justify-center gap-4 text-xs uppercase tracking-[0.4em] text-night/60">
+          <span className="inline-flex items-center gap-2 rounded-full border border-night/10 bg-white/80 px-4 py-2">
+            <InstagramIcon className="h-4 w-4" /> +80K comunidad
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-night/10 bg-white/80 px-4 py-2">
+            Stories diarias
+          </span>
           <a
             href="https://www.instagram.com/megamangosoriginal"
             target="_blank"
-            className="mx-auto inline-flex items-center gap-3 rounded-full border border-night/10 px-6 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-night transition hover:border-mangoOrange hover:text-mangoOrange"
+            className="inline-flex items-center gap-2 rounded-full border border-night/10 px-4 py-2 text-night transition hover:border-night"
           >
-            Seguir en Instagram
+            Seguir cuenta <ArrowUpRightIcon className="h-4 w-4" />
           </a>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -43,7 +53,7 @@ export default function InstagramGallery() {
                 />
               </div>
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-white/95 via-white/70 to-white/90 opacity-0 transition group-hover:opacity-100">
-                <p className="text-3xl">🥭</p>
+                <InstagramIcon className="h-8 w-8" />
                 <p className="mt-2 text-sm uppercase tracking-[0.3em] text-night">Ver en Instagram</p>
               </div>
             </a>

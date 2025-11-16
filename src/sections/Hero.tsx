@@ -5,6 +5,13 @@ import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Logo from '../components/Logo';
+import {
+  ArrowUpRightIcon,
+  HeartHandshakeIcon,
+  ShieldCheckIcon,
+  SparklesIcon,
+  TruckIcon
+} from '../components/LucideIcons';
 
 const slides = [
   {
@@ -88,9 +95,15 @@ const social = [
 ];
 
 const stats = [
-  { label: 'Sabores Signature', value: '8+' },
-  { label: 'Ciudades', value: '5' },
-  { label: 'Min. delivery', value: '~30' }
+  { label: 'Sabores Signature', value: '8+', detail: 'Recetas insignia en rotación semanal.' },
+  { label: 'Mercados & pop-ups', value: '40+', detail: 'Agenda viva entre Texas y la Costa Este.' },
+  { label: 'Delivery promedio', value: '30 min', detail: 'Via Uber Eats y alianzas locales.' }
+];
+
+const highlights = [
+  { label: 'Sazón latina curada por chefs', icon: ShieldCheckIcon },
+  { label: 'Eventos privados y catering', icon: HeartHandshakeIcon },
+  { label: 'Logística express & Uber Eats', icon: TruckIcon }
 ];
 
 export default function Hero() {
@@ -112,150 +125,163 @@ export default function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="relative isolate flex min-h-screen w-full flex-col justify-center overflow-hidden bg-gradient-to-br from-[#fff4d9] via-[#ffd0cf] to-[#f4ffda] py-28"
+      className="relative isolate flex min-h-screen w-full flex-col justify-center overflow-hidden bg-gradient-to-br from-[#fff7eb] via-[#ffe5dd] to-[#f1fff1] pb-28 pt-36"
     >
       <motion.div
         style={{ y: parallax }}
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.5),_transparent_60%)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.55),_transparent_65%)]"
         aria-hidden
       />
       <motion.div
         style={{ y: parallax }}
-        className="pointer-events-none absolute -left-20 top-24 -z-10 h-[22rem] w-[22rem] rounded-full bg-mangoYellow/40 blur-3xl"
+        className="pointer-events-none absolute -left-16 top-32 -z-10 h-[22rem] w-[22rem] rounded-full bg-mangoYellow/40 blur-3xl"
         aria-hidden
       />
       <motion.div
         style={{ y: parallax }}
-        className="pointer-events-none absolute -right-24 bottom-10 -z-10 h-[34rem] w-[34rem] rounded-full bg-mangoGreen/40 blur-3xl"
+        className="pointer-events-none absolute -right-16 bottom-10 -z-10 h-[34rem] w-[34rem] rounded-full bg-mangoGreen/35 blur-3xl"
         aria-hidden
       />
-      <div className="mx-auto flex w-full flex-col gap-12 px-4 sm:px-10 lg:px-16">
-        <div className="flex flex-col gap-6 text-center text-night lg:flex-row lg:items-stretch lg:text-left">
-          <div className="flex-1 space-y-6 rounded-[44px] border border-white/70 bg-white/80 p-8 shadow-card backdrop-blur-xl">
-            <Logo size="lg" showTagline className="mx-auto lg:mx-0" />
-            <p className="text-sm uppercase tracking-[0.6em] text-night/60">
-              Houston · Fort Worth · Dallas · New York · California
-            </p>
-            <h1 className="text-4xl font-black leading-tight text-night sm:text-5xl lg:text-6xl">
-            ¡Delicioso mango colombiano!{' '}
-            <span className="bg-gradient-to-r from-mangoRed via-mangoOrange to-mangoYellow bg-clip-text text-transparent">
-              ¿Ya lo probaste?
-            </span>
-          </h1>
-          <p className="text-lg text-night/70 sm:text-xl">
-            El sabor que te hace viajar a casa. Street food vibes, sazón latina y delivery via Uber Eats. 🥭🌶️
-          </p>
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
-            <Link
-              href="https://www.ubereats.com/"
-              target="_blank"
-              className="btn-glow w-full rounded-full bg-gradient-to-r from-mangoRed via-mangoOrange to-mangoYellow px-8 py-3 text-center text-sm font-extrabold uppercase tracking-[0.3em] text-night shadow-neon transition hover:-translate-y-0.5 sm:w-auto"
-            >
-              Ordena Ahora
-            </Link>
-            <a
-              href="#sabores"
-              className="w-full rounded-full border border-night/10 px-8 py-3 text-center text-sm font-semibold uppercase tracking-[0.2em] text-night transition hover:border-night hover:text-night sm:w-auto"
-            >
-              Explora Sabores
-            </a>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-3 text-xs uppercase text-night/60 lg:justify-start">
-            <span className="rounded-full bg-night/5 px-3 py-1">Delivery con Uber Eats</span>
-            <span className="rounded-full bg-night/5 px-3 py-1">Est. 2012 Colombia</span>
-            <span className="rounded-full bg-night/5 px-3 py-1">CEO @patycohen</span>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-white/60 bg-white/80 p-4 shadow-card">
-                <p className="text-3xl font-black text-night">{stat.value}</p>
-                <p className="text-[11px] uppercase tracking-[0.3em] text-night/50">{stat.label}</p>
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 sm:px-8">
+        <div className="rounded-[46px] border border-white/60 bg-white/80 p-8 text-night shadow-card backdrop-blur-2xl">
+          <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[1.2fr,0.8fr] lg:items-start">
+            <div className="space-y-8">
+              <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.5em] text-night/50">
+                <span className="inline-flex items-center gap-2 rounded-full border border-night/10 px-4 py-1.5">
+                  <SparklesIcon className="h-4 w-4" /> Street Fruit Lab
+                </span>
+                <span className="rounded-full border border-night/10 px-4 py-1.5">Houston · NYC · Cali</span>
               </div>
-            ))}
-          </div>
-          <div className="flex items-center justify-center gap-3 lg:justify-start">
-            {social.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Compartir en ${item.label}`}
-                className="rounded-full border border-night/10 p-3 text-night/70 transition hover:-translate-y-0.5 hover:border-mangoOrange hover:text-mangoOrange"
-              >
-                {item.icon}
-              </a>
-            ))}
-          </div>
-        </div>
-        </div>
-        <div className="grid gap-8 lg:grid-cols-[1.15fr,0.85fr]">
-          <div className="relative rounded-[44px] border border-white/70 bg-white/80 p-5 shadow-card backdrop-blur-xl">
-            <motion.div
-              key={activeSlide.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="overflow-hidden rounded-[32px]"
-            >
-              <Image
-                src={activeSlide.image}
-                alt={activeSlide.name}
-                width={800}
-                height={600}
-                className="h-[400px] w-full rounded-[32px] object-cover"
-                priority
-              />
-            </motion.div>
-            <div className="mt-5 rounded-3xl border border-night/10 bg-white/90 p-6 text-center shadow-card">
-              <p className="text-sm uppercase tracking-[0.4em] text-night/50">En rotación</p>
-              <p className="mt-2 text-2xl font-black" style={{ color: activeSlide.color }}>
-                {activeSlide.name}
-              </p>
-              <p className="mt-2 text-night/70">{activeSlide.description}</p>
-            </div>
-            <div className="mt-6 grid grid-cols-4 gap-3">
-              {slides.map((slide, index) => (
-                <button
-                  key={slide.name}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`overflow-hidden rounded-2xl border-2 transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mangoYellow ${
-                    currentSlide === index ? 'border-mangoYellow shadow-glow' : 'border-transparent'
-                  }`}
-                  aria-label={`Mostrar ${slide.name}`}
+              <div>
+                <Logo size="lg" showTagline />
+                <h1 className="mt-6 text-4xl font-black leading-tight text-night sm:text-5xl lg:text-6xl">
+                  <span className="text-night/70">Mangos premium con ADN latino:</span>{' '}
+                  <span className="bg-gradient-to-r from-mangoRed via-mangoOrange to-mangoYellow bg-clip-text text-transparent">
+                    catering, retail y delivery
+                  </span>
+                </h1>
+                <p className="mt-4 text-lg text-night/70 sm:text-xl">
+                  Diseñamos experiencias tropicales con recetas icónicas, empaque impecable y logística lista para corporativos,
+                  ferias y fans del mango. Nos encargamos de todo, tú solo disfruta. 🥭
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link
+                  href="https://www.ubereats.com/"
+                  target="_blank"
+                  className="btn-glow flex items-center justify-center gap-2 rounded-full bg-night px-8 py-3 text-center text-sm font-semibold uppercase tracking-[0.3em] text-white transition hover:-translate-y-0.5"
                 >
-                  <Image src={slide.image} alt={slide.name} width={200} height={200} className="h-16 w-full object-cover" />
-                </button>
-              ))}
-            </div>
-            <div className="absolute -right-6 top-10 hidden max-w-[220px] rounded-3xl border border-white/50 bg-white/80 p-4 text-left text-sm shadow-card backdrop-blur-xl lg:block">
-              <p className="text-xs uppercase tracking-[0.4em] text-night/50">Novedad</p>
-              <p className="mt-2 text-night font-black">Eventos, pop-ups y catering tropical.</p>
-              <p className="mt-1 text-night/60">Reservas limitadas cada semana.</p>
-            </div>
-          </div>
-          <div className="rounded-[44px] border border-white/70 bg-white/80 p-6 text-night shadow-card backdrop-blur-xl">
-            <p className="text-xs uppercase tracking-[0.4em] text-night/60">Agenda tu visita</p>
-            <p className="mt-2 text-3xl font-black">
-              ¡Nos encuentras cada semana en mercados, pop-ups y eventos privados en todo Texas!
-            </p>
-            <p className="mt-3 text-night/70">
-              Sigue nuestras redes para enterarte de los próximos spots o escríbenos para reservar tu evento corporativo, feria
-              latina o celebración familiar con el toque fresco de Mega Mangos.
-            </p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl border border-night/10 bg-night/5 p-4">
-                <p className="text-sm uppercase tracking-[0.3em] text-night/50">Delivery</p>
-                <p className="text-lg font-semibold text-night">Uber Eats · DoorDash · Catering</p>
+                  Ordena ahora <ArrowUpRightIcon className="h-4 w-4" />
+                </Link>
+                <a
+                  href="#sabores"
+                  className="flex items-center justify-center gap-2 rounded-full border border-night/15 px-8 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-night transition hover:border-night"
+                >
+                  Ver menú 2024
+                </a>
               </div>
-              <div className="rounded-3xl border border-night/10 bg-night/5 p-4">
-                <p className="text-sm uppercase tracking-[0.3em] text-night/50">Contacto</p>
-                <p className="text-lg font-semibold text-night">@megamangos · hola@megamangos.com</p>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="rounded-3xl border border-night/10 bg-white/70 p-4">
+                    <p className="text-3xl font-black text-night">{stat.value}</p>
+                    <p className="text-[11px] uppercase tracking-[0.3em] text-night/40">{stat.label}</p>
+                    <p className="mt-1 text-xs text-night/60">{stat.detail}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-3 text-[13px] text-night/70">
+                {highlights.map((item) => (
+                  <span
+                    key={item.label}
+                    className="inline-flex items-center gap-2 rounded-full border border-night/10 bg-night/5 px-3 py-1.5"
+                  >
+                    <item.icon className="h-4 w-4" /> {item.label}
+                  </span>
+                ))}
               </div>
             </div>
-            <p className="mt-6 text-center text-xs uppercase tracking-[0.4em] text-night/60">
-              Scroll para conocer nuestros sabores
-            </p>
+            <div className="space-y-6">
+              <div className="relative overflow-hidden rounded-[32px] border border-white/60 bg-white/70 p-4 shadow-card">
+                <motion.div
+                  key={activeSlide.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                  className="overflow-hidden rounded-[24px]"
+                >
+                  <Image
+                    src={activeSlide.image}
+                    alt={activeSlide.name}
+                    width={800}
+                    height={600}
+                    className="h-[360px] w-full object-cover"
+                    priority
+                  />
+                </motion.div>
+                <div className="mt-5 rounded-2xl border border-night/10 bg-white/90 p-5 text-center">
+                  <p className="text-xs uppercase tracking-[0.4em] text-night/50">Receta estrella</p>
+                  <p className="mt-2 text-2xl font-black" style={{ color: activeSlide.color }}>
+                    {activeSlide.name}
+                  </p>
+                  <p className="mt-2 text-sm text-night/70">{activeSlide.description}</p>
+                </div>
+                <div className="mt-4 grid grid-cols-4 gap-3">
+                  {slides.map((slide, index) => (
+                    <button
+                      key={slide.name}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`overflow-hidden rounded-2xl border-2 transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mangoYellow ${
+                        currentSlide === index ? 'border-mangoYellow shadow-glow' : 'border-transparent'
+                      }`}
+                      aria-label={`Mostrar ${slide.name}`}
+                    >
+                      <Image src={slide.image} alt={slide.name} width={200} height={200} className="h-14 w-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+                <div className="absolute inset-x-6 top-6 hidden rounded-3xl border border-night/10 bg-white/90 p-4 text-sm text-night/70 shadow-card lg:flex lg:flex-col">
+                  <span className="text-[10px] uppercase tracking-[0.5em] text-night/40">Novedades</span>
+                  <p className="mt-2 font-semibold text-night">Pop-ups premium, servicio bar y estaciones interactivas.</p>
+                  <p className="text-night/60">Consultoría creativa incluida.</p>
+                </div>
+              </div>
+              <div className="rounded-[32px] border border-night/10 bg-night/5 p-6 text-night">
+                <p className="text-xs uppercase tracking-[0.4em] text-night/60">Agenda semanal</p>
+                <p className="mt-2 text-2xl font-black">Mercados, festivales y drops privados</p>
+                <p className="mt-2 text-sm text-night/70">
+                  Actualizamos spots cada lunes 9am CDT. Escríbenos para cerrar tu fecha corporativa o residencial con montaje
+                  de lujo y staff bilingüe.
+                </p>
+                <div className="mt-5 grid gap-4 text-sm">
+                  <div className="rounded-2xl border border-night/10 bg-white/70 p-4">
+                    <p className="font-semibold text-night">Mié - Jue</p>
+                    <p className="text-night/60">Food truck HQ · Houston</p>
+                  </div>
+                  <div className="rounded-2xl border border-night/10 bg-white/70 p-4">
+                    <p className="font-semibold text-night">Viernes</p>
+                    <p className="text-night/60">Pop-up corporativo Dallas / Fort Worth</p>
+                  </div>
+                  <div className="rounded-2xl border border-night/10 bg-white/70 p-4">
+                    <p className="font-semibold text-night">Fin de semana</p>
+                    <p className="text-night/60">Eventos privados + entregas NYC & CA</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                {social.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Compartir en ${item.label}`}
+                    className="rounded-full border border-night/10 p-3 text-night/70 transition hover:-translate-y-0.5 hover:border-mangoOrange hover:text-mangoOrange"
+                  >
+                    {item.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

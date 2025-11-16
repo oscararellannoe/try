@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ArrowUpRightIcon, InstagramIcon, PhoneIcon } from '../components/LucideIcons';
 
 export default function FinalCTA() {
   return (
@@ -9,8 +10,8 @@ export default function FinalCTA() {
             <div className="h-full w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay" />
           </div>
           <div className="relative space-y-6">
-            <p className="text-sm uppercase tracking-[0.5em] text-mangoOrange">cta final</p>
-            <h2 className="text-4xl font-black text-night sm:text-5xl">¿Qué estás esperando? ¡Ven a Mega Mangos!</h2>
+            <p className="text-xs uppercase tracking-[0.5em] text-mangoOrange">Último llamado</p>
+            <h2 className="text-4xl font-black text-night sm:text-5xl">¿Listo para activar tu próxima experiencia tropical?</h2>
             <p className="text-lg text-night/70">
               Delivery express, combos familiares, eventos corporativos y catering tropical. Escríbenos y cuéntanos qué estilo quieres probar hoy.
             </p>
@@ -18,21 +19,37 @@ export default function FinalCTA() {
               <Link
                 href="https://www.ubereats.com/"
                 target="_blank"
-                className="btn-glow w-full rounded-full bg-gradient-to-r from-mangoRed via-mangoOrange to-mangoYellow px-8 py-3 text-center text-sm font-extrabold uppercase tracking-[0.3em] text-night"
+                className="btn-glow flex w-full items-center justify-center gap-2 rounded-full bg-night px-8 py-3 text-center text-sm font-semibold uppercase tracking-[0.3em] text-white"
               >
-                Ordena por Uber Eats
+                Ordena por Uber Eats <ArrowUpRightIcon className="h-4 w-4" />
               </Link>
               <a
                 href="#locaciones"
-                className="w-full rounded-full border border-night/10 px-8 py-3 text-center text-sm font-semibold uppercase tracking-[0.3em] text-night transition hover:border-night hover:text-night"
+                className="flex w-full items-center justify-center gap-2 rounded-full border border-night/10 px-8 py-3 text-center text-sm font-semibold uppercase tracking-[0.3em] text-night transition hover:border-night hover:text-night"
               >
-                Encuéntranos
+                Encuéntranos en ruta
               </a>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex items-center gap-3 rounded-3xl border border-night/10 bg-white/80 px-4 py-3 text-left">
+                <InstagramIcon className="h-6 w-6 text-mangoOrange" />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.4em] text-night/50">Instagram</p>
+                  <p className="font-semibold text-night">@megamangosoriginal</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 rounded-3xl border border-night/10 bg-white/80 px-4 py-3 text-left">
+                <PhoneIcon className="h-6 w-6 text-mangoOrange" />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.4em] text-night/50">WhatsApp</p>
+                  <p className="font-semibold text-night">+1 (000) 123-4567</p>
+                </div>
+              </div>
             </div>
           </div>
           <div className="relative rounded-[32px] border border-white/70 bg-white/90 p-8 text-left shadow-card">
             <p className="text-sm uppercase tracking-[0.4em] text-night/50">Servicio al cliente</p>
-            <p className="mt-4 text-3xl font-black text-night">@megamangosoriginal</p>
+            <p className="mt-4 text-3xl font-black text-night">Mega Concierge</p>
             <p className="mt-2 text-night/70">DM para eventos privados, pop-ups y colaboraciones.</p>
             <div className="mt-6 space-y-3 text-night/70">
               <p>📍 7500 Bellaire Blvd, Houston, TX</p>

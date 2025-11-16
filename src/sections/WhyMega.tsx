@@ -1,22 +1,23 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { HeartHandshakeIcon, LeafIcon, TruckIcon } from '../components/LucideIcons';
 
 const reasons = [
   {
-    icon: '😋',
-    title: 'Jugoso, picante y 100% explosivo',
-    description: 'Limón recién exprimido, chamoy hecho en casa y toppings ilimitados para customizar.'
+    icon: HeartHandshakeIcon,
+    title: 'Experiencia boutique',
+    description: 'Equipos bilingües, empaque impecable y servicio en vivo con protocolo hospitalario.'
   },
   {
-    icon: '🌎',
-    title: 'Sabores de toda Latinoamérica',
-    description: 'Ocho recetas icónicas: México, Colombia, Nicaragua, Cuba, Guatemala, Honduras, Venezuela y USA style.'
+    icon: LeafIcon,
+    title: 'Recetas con trazabilidad',
+    description: 'Productores aliados entre Colombia, México y USA. Cada topping tiene ficha técnica y lote.'
   },
   {
-    icon: '🚚',
-    title: 'Delivery via Uber Eats',
-    description: 'Desde 7500 Bellaire Blvd Houston directo a tu sala. También pick-up express en cada locación.'
+    icon: TruckIcon,
+    title: 'Logística nacional',
+    description: 'Delivery express, food trucks certificados y operaciones listas para corporate catering.'
   }
 ];
 
@@ -42,8 +43,8 @@ export default function WhyMega() {
                 className="relative overflow-hidden rounded-[32px] border border-white/70 bg-white/80 p-6 text-night shadow-card"
               >
                 <div className="absolute inset-x-6 top-0 h-1 rounded-full bg-gradient-to-r from-mangoRed via-mangoOrange to-mangoYellow" aria-hidden />
-                <div className="mt-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-night/5 text-3xl">
-                  {reason.icon}
+                <div className="mt-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-night/5">
+                  <reason.icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 text-2xl font-black text-night">{reason.title}</h3>
                 <p className="mt-2 text-night/70">{reason.description}</p>
