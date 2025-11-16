@@ -17,6 +17,21 @@ body {
   min-height: 100vh;
 }
 
+.section-shell {
+  position: relative;
+  padding-block: clamp(4rem, 7vw, 7rem);
+  padding-inline: clamp(1.25rem, 5vw, 2.75rem);
+}
+
+.section-container {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+}
+
+.section-shell + .section-shell {
+  margin-top: clamp(1rem, 3vw, 2rem);
+}
+
 a {
   color: inherit;
   text-decoration: none;
