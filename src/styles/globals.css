@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background-color: #031f14;
+  background-color: #ffffff;
   min-height: 100vh;
 }
 
@@ -21,8 +21,8 @@ a {
 }
 
 ::selection {
-  background: rgba(255, 215, 0, 0.5);
-  color: #031f14;
+  background: rgba(255, 107, 53, 0.2);
+  color: #05060a;
 }
 
 @keyframes float-slow {

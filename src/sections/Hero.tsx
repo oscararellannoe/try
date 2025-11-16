@@ -118,11 +118,11 @@ export default function Hero() {
       />
       <div className="flex-1 space-y-6 text-center lg:text-left">
         <Logo size="lg" showTagline className="mx-auto lg:mx-0" />
-        <p className="text-sm uppercase tracking-[0.6em] text-white/70">Houston · Fort Worth · Dallas · New York · California</p>
-        <h1 className="text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
+        <p className="text-sm uppercase tracking-[0.6em] text-night/60">Houston · Fort Worth · Dallas · New York · California</p>
+        <h1 className="text-4xl font-black leading-tight text-night sm:text-5xl lg:text-6xl">
           ¡Delicioso mango colombiano! <span className="text-mangoYellow">¿Ya lo probaste?</span>
         </h1>
-        <p className="text-lg text-white/80 sm:text-xl">
+        <p className="text-lg text-night/70 sm:text-xl">
           El sabor que te hace viajar a casa. Street food vibes, sazón latina y delivery via Uber Eats. 🥭🌶️
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
@@ -135,15 +135,15 @@ export default function Hero() {
           </Link>
           <a
             href="#sabores"
-            className="w-full rounded-full border border-white/30 px-8 py-3 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:border-mangoYellow hover:text-mangoYellow sm:w-auto"
+            className="w-full rounded-full border border-night/10 px-8 py-3 text-center text-sm font-semibold uppercase tracking-[0.2em] text-night transition hover:border-mangoOrange hover:text-mangoOrange sm:w-auto"
           >
             Explora Sabores
           </a>
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-3 text-xs uppercase text-white/70 lg:justify-start">
-          <span className="rounded-full bg-white/10 px-3 py-1">Delivery con Uber Eats</span>
-          <span className="rounded-full bg-white/10 px-3 py-1">Est. 2012 Colombia</span>
-          <span className="rounded-full bg-white/10 px-3 py-1">CEO @patycohen</span>
+        <div className="flex flex-wrap items-center justify-center gap-3 text-xs uppercase text-night/60 lg:justify-start">
+          <span className="rounded-full bg-night/5 px-3 py-1">Delivery con Uber Eats</span>
+          <span className="rounded-full bg-night/5 px-3 py-1">Est. 2012 Colombia</span>
+          <span className="rounded-full bg-night/5 px-3 py-1">CEO @patycohen</span>
         </div>
         <div className="flex items-center justify-center gap-3 lg:justify-start">
           {social.map((item) => (
@@ -153,7 +153,7 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
               aria-label={`Compartir en ${item.label}`}
-              className="rounded-full border border-white/20 p-3 text-white/80 transition hover:border-mangoYellow hover:text-mangoYellow"
+              className="rounded-full border border-night/10 p-3 text-night/70 transition hover:border-mangoOrange hover:text-mangoOrange"
             >
               {item.icon}
             </a>
@@ -161,7 +161,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="mt-12 flex-1 lg:mt-0">
-        <div className="relative rounded-[32px] border border-white/20 bg-white/10 p-4 backdrop-blur-2xl">
+        <div className="relative rounded-[32px] border border-night/10 bg-white p-4 shadow-[0_25px_80px_rgba(5,6,10,0.08)]">
           <motion.div
             key={activeSlide.name}
             initial={{ opacity: 0, y: 30 }}
@@ -178,12 +178,12 @@ export default function Hero() {
               priority
             />
           </motion.div>
-          <div className="mt-4 rounded-2xl bg-night/70 p-5 text-center">
-            <p className="text-sm uppercase tracking-[0.4em] text-white/60">En rotación</p>
+          <div className="mt-4 rounded-2xl bg-white p-5 text-center shadow-[0_20px_60px_rgba(5,6,10,0.08)]">
+            <p className="text-sm uppercase tracking-[0.4em] text-night/50">En rotación</p>
             <p className="mt-2 text-2xl font-black" style={{ color: activeSlide.color }}>
               {activeSlide.name}
             </p>
-            <p className="mt-2 text-white/80">{activeSlide.description}</p>
+            <p className="mt-2 text-night/70">{activeSlide.description}</p>
           </div>
           <div className="mt-6 grid grid-cols-4 gap-3">
             {slides.map((slide, index) => (

@@ -20,8 +20,8 @@ export default function Logo({ size = 'md', showTagline = false, className = '' 
     >
       <span className="drop-shadow-[0_4px_12px_rgba(3,31,20,0.4)]">MEGA MANGOS</span>
       {showTagline && (
-        <span className="ml-3 hidden text-xs font-semibold uppercase text-white/90 sm:inline-flex">
-          <span className="text-mangoYellow">Est.</span> 2012
+        <span className="ml-3 hidden text-xs font-semibold uppercase text-night/70 sm:inline-flex">
+          <span className="text-mangoOrange">Est.</span> 2012
         </span>
       )}
     </Link>
